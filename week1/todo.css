@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf0f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 80vw;
+  height: 100vh;
+}
+
+.header {
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.wrapper {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto;
+}
+
+input {
+  width: 60vw;
+  height: 60px;
+  &:focus {
+    outline: 2px solid #cfdbed;
+  }
+  &::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    color: #cfdbed;    
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+  }
+}
+
+.list-container {
+  width: 60vw;
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.todo, .done {
+  width: 200px;
+  height: 70vh;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: underline #cfdbed;
+  /* border-bottom: 2px solid #85aee4; */
+  text-underline-offset: 5px;
+}
+
+.list {
+  width: 100%;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+  width: 100%; 
+}
+
+.newDiv {
+  border-bottom: 4px solid #cfdbed;
+  padding-bottom: 10px;
+  margin: 30px auto;
+  width: 100%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+button {
+  font-size: 20px;
+  border: none;
+  background-color: #cfdbed;
+}
