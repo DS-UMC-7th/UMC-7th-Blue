@@ -9,15 +9,21 @@ const LayoutContainer = styled.div`
 `;
 
 const SidebarContainer = styled.div`
-  flex-basis: 300px;
   height: 100%;
+  width: 200px;  /* 고정된 너비 설정 */
+  flex-shrink: 0; /* 사이드바가 축소되지 않도록 설정 */
+  background-color: #131517;
 `;
 
 const OutletContainer = styled.div`
   flex-grow: 1;
   background-color: black;
   color: white;
-  height: 100%;
+  overflow-y: auto;
+
+  &:: -webkit-scrollbar {
+  display: none;
+}
 `;
 
 const RootLayout = () => {

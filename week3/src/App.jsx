@@ -13,6 +13,7 @@ import Popular from './pages/movies/popular';
 import TopRated from './pages/movies/toprated';
 import UpComing from './pages/movies/upcoming';
 import MovieLayout from './layout/movie-layout';
+import MovieDetailPage from './pages/movies/moviedetail';
 
 function App() {
 
@@ -38,7 +39,11 @@ function App() {
               element: <Movies/>
             },
             {
-              path: 'now-playing',
+              path: ':movieId',
+              element: <MovieDetailPage/>
+            },
+            {
+              path: 'now_playing',
               element: <NowPlaying/>
             },
             {
@@ -46,11 +51,11 @@ function App() {
               element: <Popular/>
             },
             {
-              path: 'top-rated',
+              path: 'top_rated',
               element: <TopRated/>
             },
             {
-              path: 'up-coming',
+              path: 'upcoming',
               element: <UpComing/>
             }
           ]
