@@ -39,7 +39,7 @@ const Movies = () => {
       <h1>카테고리</h1>
       <CategoryContainer>
         <Card>
-          <Link to="/movies/now-playing">
+          <Link to="/movies/now_playing">
             <CardImg src={image1} alt="현재 상영중인" />
             <CardTitle>현재 상영중인</CardTitle>
           </Link>
@@ -51,13 +51,13 @@ const Movies = () => {
           </Link>
         </Card>
         <Card>
-          <Link to="/movies/top-rated">
+          <Link to="/movies/top_rated">
             <CardImg src={image3} alt="높은 평가를 받은" />
             <CardTitle>높은 평가를 받은</CardTitle>
           </Link>
         </Card>
         <Card>
-          <Link to="/movies/up-coming">
+          <Link to="/movies/upcoming">
             <CardImg src={image4} alt="개봉 예정중인" />
             <CardTitle>개봉 예정중인</CardTitle>
           </Link>
