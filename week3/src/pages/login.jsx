@@ -31,7 +31,6 @@ const Error = styled.p`
 `;
 
 const Button = styled.button`
-  // background-color: ${({ isValid }) => (isValid ? '#ea345c' : '#d3d3d3')};
   background-color: #ea345c;
   color: white;
   width: 20vw;
@@ -39,10 +38,11 @@ const Button = styled.button`
   border: 0;
   padding: 0;
   border-radius: 10px;
-
+  
   //   &:disabled {
   //   background-color: #d3d3d3;
   // }
+
 `;
 
 const Login = () => {
@@ -84,8 +84,7 @@ const Login = () => {
     } catch (error) {
       console.log("로그인 실패", error)
     }
-  }
-
+   
   return(
     <LoginContainer>
       <h1>로그인</h1>
@@ -106,7 +105,7 @@ const Login = () => {
           />
           <Error>{errors.password?.message}</Error>
           <Button 
-            type="submit" 
+            type="submit"
             // isValid={isValid}
             // disabled={!isValid}
             >로그인</Button>
