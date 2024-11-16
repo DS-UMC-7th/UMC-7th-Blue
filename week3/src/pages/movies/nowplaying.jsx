@@ -1,9 +1,12 @@
+import useQueryFetch from "../../hooks/useQueryFetch";
 import MovieData from "./moviedata";
-import useCustomFetch from "../../hooks/useCustomFetch";
+// import useCustomFetch from "../../hooks/useCustomFetch";
 
 const NowPlaying = () => {
 
-  const { data: movies, isLoading, isError } = useCustomFetch('/movie/now_playing');
+  // const { data: movies, isLoading, isError } = useCustomFetch('/movie/now_playing');
+
+  const { data: movies, isLoading, isError } = useQueryFetch('/movie/now_playing');
 
   if (isLoading) {
     return(

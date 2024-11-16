@@ -1,9 +1,12 @@
+import useQueryFetch from "../../hooks/useQueryFetch";
 import MovieData from "./moviedata";
-import useCustomFetch from "../../hooks/useCustomFetch";
+// import useCustomFetch from "../../hooks/useCustomFetch";
 
 const TopRated = () => {
 
-  const { data: movies, isLoading, isError } = useCustomFetch('/movie/top_rated');
+  // const { data: movies, isLoading, isError } = useCustomFetch('/movie/top_rated');
+
+  const { data: movies, isLoading, isError } = useQueryFetch('/movie/top_rated');
 
   if (isLoading) {
     return(
