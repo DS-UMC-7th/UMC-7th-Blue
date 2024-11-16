@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const MovieContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
   margin-top: 20px;
   margin-left: 10px;
