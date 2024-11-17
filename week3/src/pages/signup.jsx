@@ -71,15 +71,13 @@ const Signup = () => {
   const onSubmit = async (data) => {
     try {
       const response = await axios.post('http://localhost:3000/auth/register', {
-      // const response = await axios.post('/auth/register', {
         email: data.email,
         password: data.password,
         passwordCheck: data.passwordCheck,
       });
-      // }, {withCredentials: true});
       console.log("성공: ", response.data);
       alert("회원가입 성공!");
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       console.log('실패 ', error);
       alert("회원가입 실패!");

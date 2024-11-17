@@ -74,11 +74,11 @@ const Login = () => {
         password: data.password,
       });
       console.log("로그인 성공", response.data);
-      // const { accessToken, refreshToken } = response.data;
-      // if (response.status === 200) {
-      //   localStorage.setItem("accessToken", accessToken);
-      //   localStorage.setItem("refreshToken", refreshToken);
-      // }
+      const { accessToken, refreshToken } = response.data;
+      if (response.status === 201) {
+        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("refreshToken", refreshToken);
+      }
       navigate("/");
 
     } catch (error) {
