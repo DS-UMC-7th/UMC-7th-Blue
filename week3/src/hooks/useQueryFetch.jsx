@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { axiosInstance } from "../apis/axios-instance";
 
-const useQueryFetch = (url) => {
+const useQueryFetch = (category, page) => {
   const { data, isLoading, isError } = useQuery({
-    queryKey: [url],
+    queryKey: ['movies', category, page],
     queryFn: async () => {
-      const response = await axiosInstance.get(url);
+      const response = await axiosInstance.get(`/movie/${category}?language=ko-KR&page=${page}`);
       return response;
-    }
+    },
   });
 
   return { data, isLoading, isError };

@@ -1,6 +1,6 @@
-import useQueryFetch from "../../hooks/useQueryFetch";
+// import useQueryFetch from "../../hooks/useQueryFetch";
 import { useParams } from "react-router-dom";
-// import useCustomFetch from "../../hooks/useCustomFetch";
+import useCustomFetch from "../../hooks/useCustomFetch";
 import styled from "styled-components";
 
 const InfoContainer = styled.div`
@@ -34,9 +34,9 @@ const Info = () => {
 
   const params = useParams();
 
-  // const { data: details, isLoading, isError } = useCustomFetch(`/movie/${params.movieId}`);
+  const { data: details, isLoading, isError } = useCustomFetch(`/movie/${params.movieId}`);
 
-  const { data: details, isLoading, isError } = useQueryFetch(`/movie/${params.movieId}`);
+  // const { data: details, isLoading, isError } = useQueryFetch(`/movie/${params.movieId}`);
 
     // 로딩 상태 처리
     if (isLoading) return <div>로딩중...</div>;
