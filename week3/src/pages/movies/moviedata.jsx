@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-const MovieContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  gap: 20px;
-  margin-top: 20px;
-  margin-left: 10px;
-`;
+// const MovieContainer = styled.div`
+//   display: grid;
+//   grid-template-columns: repeat(9, 1fr);
+//   gap: 20px;
+//   margin-top: 20px;
+//   margin-left: 10px;
+// `;
 
 const Movie = styled.div`
   border-radius: 10px;
@@ -31,23 +31,39 @@ const MovieDate = styled.p`
   margin: 0;
 `;
 
-const MovieData = ({ movies }) => {
+// const MovieData = ({ movies }) => {
+
+//   const IMG_URL = "https://image.tmdb.org/t/p/w500";
+
+//   const navigate = useNavigate();
+
+//   return(
+//     <MovieContainer>
+//       {movies.data?.results.map((movie) => (
+//         <Movie key={movie.id}
+//           onClick={() => navigate(`/movies/${movie.id}`)}>
+//           <MovieImg src={`${IMG_URL}${movie.poster_path}`} alt={movie.title}/>
+//           <MovieTitle>{movie.title}</MovieTitle>
+//           <MovieDate>{movie.release_date}</MovieDate>
+//         </Movie>
+//       ))}
+//     </MovieContainer>
+//   );
+// }
+
+const MovieData = ({ movie }) => {
 
   const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
   const navigate = useNavigate();
 
   return(
-    <MovieContainer>
-      {movies.data?.results.map((movie) => (
         <Movie key={movie.id}
           onClick={() => navigate(`/movies/${movie.id}`)}>
           <MovieImg src={`${IMG_URL}${movie.poster_path}`} alt={movie.title}/>
           <MovieTitle>{movie.title}</MovieTitle>
           <MovieDate>{movie.release_date}</MovieDate>
         </Movie>
-      ))}
-    </MovieContainer>
   );
 }
 
