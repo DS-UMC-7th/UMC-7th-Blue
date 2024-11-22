@@ -2,7 +2,9 @@ import {useForm} from 'react-hook-form'
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import styled from 'styled-components';
-
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useMutation } from "@tanstack/react-query"
 
 const SignupContainer = styled.div`
   display: flex;
@@ -43,6 +45,8 @@ const Button = styled.button`
 
 const Signup = () => {
 
+  const navigate = useNavigate();
+
   const schema = yup.object().shape({
     email: yup
       .string()
@@ -53,7 +57,7 @@ const Signup = () => {
       .min(8, '비밀번호는 8자 이상이어야 합니다.')
       .max(16, '비밀번호는 16자 이하여야 합니다.')
       .required(),
-    pwcheck: yup
+    passwordCheck: yup
       .string()
       .oneOf([yup.ref('password')], '비밀번호가 일치하지 않습니다.')
       .required('비밀번호 검증 또한 필수 입력요소입니다.'),
@@ -64,8 +68,41 @@ const Signup = () => {
     mode: 'onChange'
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const signUpPost = async ({ email, password, passwordCheck }) => {
+    const response = await axios.post('http://localhost:3000/auth/register', {
+      email,
+      password,
+      passwordCheck,
+    });
+
+    console.log(response);
+    
+    return response;
+  }
+
+  const { mutate } = useMutation({
+    mutationFn: signUpPost,
+    mutationKey: ['signup'],
+    onSuccess: (response) => {
+      console.log("성공: ", response.data);
+      alert("회원가입 성공!");
+      navigate("/login");
+    },
+    onError: (error) => {
+      console.log('실패 ', error);
+      alert("회원가입 실패!");
+    }
+  })
+
+  const onSubmit = async (data) => {
+    try {
+      mutate({ 
+        email: data.email, 
+        password: data.password, 
+        passwordCheck: data.passwordCheck });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return(
@@ -90,10 +127,10 @@ const Signup = () => {
           <Input 
             type='password' 
             placeholder='비밀번호를 다시 입력해주세요!' 
-            {...register('pwcheck')}
-            onBlur={() => trigger('pwcheck')}
+            {...register('passwordCheck')}
+            onBlur={() => trigger('passwordCheck')}
           />
-          <Error>{errors.pwcheck?.message}</Error>
+          <Error>{errors.passwordCheck?.message}</Error>
           <Button 
             type='submit'
             >제출</Button>
