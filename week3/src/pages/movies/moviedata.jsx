@@ -51,4 +51,22 @@ const MovieData = ({ movies }) => {
   );
 }
 
+// useInfiniteQuery
+
+// const MovieData = ({ movie }) => {
+
+//   const IMG_URL = "https://image.tmdb.org/t/p/w500";
+
+//   const navigate = useNavigate();
+
+//   return(
+//         <Movie key={movie.id}
+//           onClick={() => navigate(`/movies/${movie.id}`)}>
+//           <MovieImg src={`${IMG_URL}${movie.poster_path}`} alt={movie.title}/>
+//           <MovieTitle>{movie.title}</MovieTitle>
+//           <MovieDate>{movie.release_date}</MovieDate>
+//         </Movie>
+//   );
+// }
+
 export default MovieData;

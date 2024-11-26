@@ -1,3 +1,4 @@
+// import useQueryFetch from "../../hooks/useQueryFetch";
 import { useParams } from "react-router-dom";
 import useCustomFetch from "../../hooks/useCustomFetch";
 import styled from "styled-components";
@@ -55,7 +56,8 @@ const Credits = () => {
   const params = useParams();
 
   const { data: credits, isLoading, isError } = useCustomFetch(`/movie/${params.movieId}/credits`);
-  // console.log("credits: ", credits.data)
+
+  // const { data: credits, isLoading, isError } = useQueryFetch(`/movie/${params.movieId}/credits`);
 
   // 로딩 상태 처리
   if (isLoading) return <div>로딩중...</div>;
@@ -67,9 +69,6 @@ const Credits = () => {
   const crews = credits.data?.crew;
 
   const IMG_URL = "https://image.tmdb.org/t/p/w500";
-
-  // console.log("casts: ", casts);
-  // console.log("crews: ", crews);
 
   const ImgError = (e) => {
     e.target.src = avatarImg;
